@@ -21,6 +21,7 @@
 \RequirePackage{keycommand}
 \RequirePackage{fancyhdr} 			  % Adaptation of the footers
 \RequirePackage[most]{tcolorbox}  % used for some boxes
+\RequirePackage{tocloft}
 
 % Load other modules of this package
 \usepackage{lib/dndmonster}
@@ -30,6 +31,7 @@
 \usepackage{lib/dndtable}
 \usepackage{lib/dndquote}
 \usepackage{lib/dndpaperbox}
+\usepackage{lib/dndtoc}
 
 
 %
@@ -129,14 +131,14 @@
 % implementation is buggy. Here is a re-implementation
 % from tex.stackexchange.
 \begingroup
-  \makeatletter
-  \catcode`\/=8 %
-  \@firstofone
-    {
-      \endgroup
-      \renewcommand{\ifcommandkey}[1]{%
+\makeatletter
+\catcode`\/=8 %
+\@firstofone
+{
+    \endgroup
+    \renewcommand{\ifcommandkey}[1]{%
         \csname @\expandafter \expandafter \expandafter
         \expandafter \expandafter \expandafter  \expandafter
         \kcmd@nbk \commandkey {#1}//{first}{second}//oftwo\endcsname
-      }
-   }
+    }
+}
